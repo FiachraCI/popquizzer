@@ -10,7 +10,7 @@
 
 
 section {
-    background-image: url('/assets/images/25235.jpg');
+    background-image: url('../images/25235.jpg');
     background-attachment: fixed;
     background-size: cover;
     min-height: 100vh;
