@@ -85,6 +85,10 @@ span {
     text-align: center;
 }
 
+h1 {
+    margin: 50% 2rem;
+}
+
 /* Categories */
 
 .category {

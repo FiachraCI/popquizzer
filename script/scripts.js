@@ -1,6 +1,6 @@
-function populateBP() {
-    $('.quiz-box-container').html(
-        `<div class="question-area">
+function populateBP2() {
+  $('.quiz-box-container').html(
+    `<div class="question-area">
     <h3 class="mt-3">
       "In which 1979 film was the spaceship called Nostromo?"
     </h3>
@@ -19,20 +19,35 @@ function populateBP() {
         </div>
       </div>
 </div>`
-    );
+  );
 }
- 
-$('#mythology').click(function(){
-    $('#easy')
-        .removeClass()
-        .addClass('mythology_easy difficulty2')
-        .click(populateBP);
-    $('#medium')
-        .removeClass()
-        .addClass('mythology_medium difficulty2')
-        .click(populateBP);
-    $('#hard')
-        .removeClass()
-        .addClass('mythology_hard difficulty2')
-        .click(populateBP);
+
+function populateBP1() {
+  $('.quiz-box-container').html(
+    `<div class="question-area">
+    <h1 class="mt-5">
+      The quiz is about to begin, get ready!
+    </h1>
+  </div>`
+  );
+}
+
+$('#mythology').click(function () {
+  $('#easy')
+    .removeClass()
+    .addClass('mythology_easy difficulty2')
+    .click(function () {
+      populateBP1();
+      setTimeout(function () {
+        populateBP2()
+      }, 5000);
+    })
+  $('#medium')
+    .removeClass()
+    .addClass('mythology_medium difficulty2')
+    .click(populateBP);
+  $('#hard')
+    .removeClass()
+    .addClass('mythology_hard difficulty2')
+    .click(populateBP);
 });
