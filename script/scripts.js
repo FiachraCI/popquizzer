@@ -25,9 +25,10 @@ function populateBP2() {
 function populateBP1() {
   $('.quiz-box-container').html(
     `<div class="question-area">
-    <h1 class="mt-5">
-      The quiz is about to begin, get ready!
-    </h1>
+    <h2 class="mt-5">
+      The quiz is about to begin!
+    </h2>
+    <h1 class="mt-5">Get ready!</h1>
   </div>`
   );
 }
@@ -35,19 +36,17 @@ function populateBP1() {
 $('#mythology').click(function () {
   $('#easy')
     .removeClass()
-    .addClass('mythology_easy difficulty2')
+    .addClass('difficulty2')
     .click(function () {
       populateBP1();
       setTimeout(function () {
         populateBP2()
       }, 5000);
-    })
+    });
   $('#medium')
     .removeClass()
-    .addClass('mythology_medium difficulty2')
-    .click(populateBP);
+    .addClass('difficulty2');
   $('#hard')
     .removeClass()
-    .addClass('mythology_hard difficulty2')
-    .click(populateBP);
+    .addClass('difficulty2')
 });

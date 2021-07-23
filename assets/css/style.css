@@ -102,6 +102,14 @@ h1 {
     width: 25%;
 }
 
+.category:hover {
+    background-color: rgb(255, 136, 0);
+    box-shadow: 2px 2px 2px rgb(141, 141, 141);
+    transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+}
+
 .category i {
     font-size: 4rem;
     display: block;
@@ -134,6 +142,14 @@ h1 {
     pointer-events: auto;
 }
 
+.difficulty2:hover {
+    background-color: rgb(226, 112, 6);
+    box-shadow: 2px 2px 2px rgb(141, 141, 141);
+    transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+}
+
 .difficulty1 i {
     font-size: 4rem;
     display: block;
@@ -150,18 +166,6 @@ h1 {
     color: #fafafa;
 }
 
-/* Quiz initialization */
-
-/* .timer {
-  height: 8rem;
-  width: 8rem;
-  border: solid #d11d27 20px;
-  border-radius: 50%;
-  margin: auto;
-  justify-content: center;
-  display: flex;
-  align-items: center;
-} */
 
 /* Question Container */
 
