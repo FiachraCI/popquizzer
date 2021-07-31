@@ -49,6 +49,36 @@ function populateBP2() {
   );
 }
 
+// Ner array/randomisation of JSON data for multiple choice answers
+
+let newArray;
+
+function randomizeJSONData(data) {
+  newArray = new Array(data.results[0].incorrect_answers[0],
+    data.results[0].incorrect_answers[1],
+    data.results[0].incorrect_answers[2],
+    data.results[0].correct_answer);
+
+  for (let i = newArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * i)
+    const temp = newArray[i]
+    newArray[i] = newArray[j]
+    newArray[j] = temp
+  }
+};
+
+// Run initial quiz when category/difficulty have been clicked in series
+
+function runQuiz(data) {
+  randomizeJSONData(data);
+  $("#question").html(`${data.results[0].question}`)
+  $('.ans1').html(`${newArray[0]}`)
+  $('.ans2').html(`${newArray[1]}`)
+  $('.ans3').html(`${newArray[2]}`)
+  $('.ans4').html(`${newArray[3]}`)
+};
+
+
 // Quiz Initialization Message
 
 function populateBP1() {
