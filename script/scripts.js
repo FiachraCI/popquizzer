@@ -1,4 +1,4 @@
-// API Calls grouped by category
+//// API Calls grouped by category
 
 // Mythology
 var data;
@@ -49,7 +49,20 @@ function populateBP2() {
   );
 }
 
-// Ner array/randomisation of JSON data for multiple choice answers
+// Quiz Initialization Message
+
+function populateBP1() {
+  $('.quiz-box-container').html(
+    `<div class="question-area">
+    <h2 class="mt-5">
+      The quiz is about to begin!
+    </h2>
+    <h1 class="mt-5">Get ready!</h1>
+  </div>`
+  );
+}
+
+// New array/randomisation of JSON data for multiple choice answers
 
 let newArray;
 
@@ -77,20 +90,6 @@ function runQuiz(data) {
   $('.ans3').html(`${newArray[2]}`)
   $('.ans4').html(`${newArray[3]}`)
 };
-
-
-// Quiz Initialization Message
-
-function populateBP1() {
-  $('.quiz-box-container').html(
-    `<div class="question-area">
-    <h2 class="mt-5">
-      The quiz is about to begin!
-    </h2>
-    <h1 class="mt-5">Get ready!</h1>
-  </div>`
-  );
-}
 
 // Mythology Game Selection
 
@@ -141,3 +140,23 @@ $('#mythology').click(function () {
       }, 5001);
     });
 });
+
+// Update Score
+
+updateScore()
+
+// Update Time
+
+updateTime()
+
+// Visual Feedback For Correct/Incorrect Answers
+
+visualFB()
+
+// End Game Results
+
+endGame()
+
+// Check Answer/Generate New question
+
+checkAnswer()
