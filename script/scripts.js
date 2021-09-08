@@ -3,26 +3,14 @@
 // Mythology
 var data;
 
-async function myt_e() {
-  let response = await fetch(`https://opentdb.com/api.php?amount=1&category=20&difficulty=easy&type=multiple`);
+async function callApiData(category, difficulty) {
+  let response = await fetch(`https://opentdb.com/api.php?amount=1&category=${category}&difficulty=${difficulty}&type=multiple`);
   console.log(response)
   data = await response.json();
   console.log(data)
 }
 
-async function myt_m() {
-  let response = await fetch(`https://opentdb.com/api.php?amount=1&category=20&difficulty=medium&type=multiple`);
-  console.log(response)
-  data = await response.json();
-  console.log(data)
-}
 
-async function myt_h() {
-  let response = await fetch(`https://opentdb.com/api.php?amount=1&category=20&difficulty=hard&type=multiple`);
-  console.log(response)
-  data = await response.json();
-  console.log(data)
-}
 
 // Quiz Boilerplate Function
 
@@ -33,21 +21,23 @@ function populateBP2() {
     </h3>
   </div>
   <div class="answer-area">
-    <button class="ans1 ans">Answer 1</button
-    ><button class="ans2 ans">Answer 2</button
-    ><button class="ans3 ans">Answer 3</button
-    ><button class="ans4 ans">Answer 4</button>
+    <button class="ans1 ans"></button
+    ><button class="ans2 ans"></button
+    ><button class="ans3 ans"></button
+    ><button class="ans4 ans"></button>
   </div>
   <div class="results-area">
           <p class="score results">
             Score:<span id="operand1">0</span>/<span id="operand2">0</span>
           </p>
-          <p class="time results">Time:<span id="operand3"></span>:<span id="operand4"></span></p>
+          <p class="time results">Time:<span id="operand3"></span>:
+          <span id="operand4"></span></p>
         </div>
       </div>
 </div>`
   );
 }
+
 
 // Quiz Initialization Message
 
@@ -80,83 +70,89 @@ function randomizeJSONData(data) {
   }
 };
 
+
+
 // Run initial quiz when category/difficulty have been clicked in series
 
 function runQuiz(data) {
   randomizeJSONData(data);
-  $("#question").html(`${data.results[0].question}`)
+  $('#question').html(`${data.results[0].question}`)
   $('.ans1').html(`${newArray[0]}`)
   $('.ans2').html(`${newArray[1]}`)
   $('.ans3').html(`${newArray[2]}`)
   $('.ans4').html(`${newArray[3]}`)
 };
 
+
 // Mythology Game Selection
 
-$('#mythology').click(function () {
-  $('#easy')
-    .removeClass()
-    .addClass('difficulty2')
-    .click(function () {
-      myt_e();
-      populateBP1();
-      setTimeout(function () {
-        populateBP2();
-      }, 5000);
-      setTimeout(function () {
-        runQuiz(data);
-      }, 5001);
-    });
+
+
+
+// $(this).click(function () {
+
+//   let categoryParent = document.getElementById('mythology');
+//   console.log(categoryParent)
+//   $('.quiz-box-container')
+//   $('#easy')
+//     .removeClass()
+//     .addClass('difficulty2')
+//     .click(function () {
+//       callApiData(categoryParent.dataset.cat, 'easy'); //Mythology Originally
+//       populateBP1();
+//       setTimeout(function () {
+//         populateBP2();
+//       }, 5000);
+//       setTimeout(function () {
+//         runQuiz(data);
+//       }, 5001);
+//     });
+// });
+
+let category;
+let difficulty;
+
+$('.category').click(function (event) {
+  category = event.currentTarget.attributes[2].nodeValue
+  console.log(category)
+
+  $('.difficulty').removeClass().addClass('difficulty2 diifficulty')
 });
 
-$('#mythology').click(function () {
-  $('#medium')
-    .removeClass()
-    .addClass('difficulty2')
-    .click(function () {
-      myt_m();
-      populateBP1();
-      setTimeout(function () {
-        populateBP2();
-      }, 5000);
-      setTimeout(function () {
-        runQuiz(data);
-      }, 5001);
-    });
+$('.difficulty').click(function (event) {
+  difficulty = event.currentTarget.attributes[1].nodeValue;
+  console.log(difficulty)
+  $('.difficulty').removeClass().addClass('difficulty2 diifficulty')
+  callApiData(category, difficulty);
+  populateBP1();
+  setTimeout(function () {
+    populateBP2();
+  }, 1000);
+  setTimeout(function () {
+    runQuiz(data);
+  }, 1001);
 });
 
-$('#mythology').click(function () {
-  $('#hard')
-    .removeClass()
-    .addClass('difficulty2')
-    .click(function () {
-      myt_h();
-      populateBP1();
-      setTimeout(function () {
-        populateBP2();
-      }, 5000);
-      setTimeout(function () {
-        runQuiz(data);
-      }, 5001);
-    });
-});
+// Check Answer
 
 // Update Score
 
-updateScore()
+// updateScore()
 
 // Update Time
 
-updateTime()
+// updateTime()
 
 // Visual Feedback For Correct/Incorrect Answers
 
-visualFB()
+// visualFB()
 
 // End Game Results
 
-endGame()
+// endGame()
 
 // Check Answer/Generate New question
 
-checkAnswer()
+// function checkAnswer() {
+
+// }
