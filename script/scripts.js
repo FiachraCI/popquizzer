@@ -4,13 +4,11 @@
 var data;
 
 async function callApiData(category, difficulty) {
-  let response = await fetch(`https://opentdb.com/api.php?amount=1&category=${category}&difficulty=${difficulty}&type=multiple`);
+  let response = await fetch(`https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}&type=multiple`);
   console.log(response)
   data = await response.json();
   console.log(data)
 }
-
-
 
 // Quiz Boilerplate Function
 
@@ -38,7 +36,6 @@ function populateBP2() {
   );
 }
 
-
 // Quiz Initialization Message
 
 function populateBP1() {
@@ -55,28 +52,33 @@ function populateBP1() {
 // New array/randomisation of JSON data for multiple choice answers
 
 let newArray;
+let position = -1;
+
 
 function randomizeJSONData(data) {
-  newArray = new Array(data.results[0].incorrect_answers[0],
-    data.results[0].incorrect_answers[1],
-    data.results[0].incorrect_answers[2],
-    data.results[0].correct_answer);
-
+    newArray = new Array(data.results[position].incorrect_answers[0],
+    data.results[position].incorrect_answers[1],
+    data.results[position].incorrect_answers[2],
+    data.results[position].correct_answer);
+    
+    
   for (let i = newArray.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * i)
     const temp = newArray[i]
     newArray[i] = newArray[j]
     newArray[j] = temp
   }
-};
+}
+;
 
 
 
 // Run initial quiz when category/difficulty have been clicked in series
 
 function runQuiz(data) {
+  position++;
   randomizeJSONData(data);
-  $('#question').html(`${data.results[0].question}`)
+  $('#question').html(`${data.results[position].question}`)
   $('.ans1').html(`${newArray[0]}`)
   $('.ans2').html(`${newArray[1]}`)
   $('.ans3').html(`${newArray[2]}`)
@@ -84,40 +86,27 @@ function runQuiz(data) {
 };
 
 
-// Mythology Game Selection
-
-
-
-
-// $(this).click(function () {
-
-//   let categoryParent = document.getElementById('mythology');
-//   console.log(categoryParent)
-//   $('.quiz-box-container')
-//   $('#easy')
-//     .removeClass()
-//     .addClass('difficulty2')
-//     .click(function () {
-//       callApiData(categoryParent.dataset.cat, 'easy'); //Mythology Originally
-//       populateBP1();
-//       setTimeout(function () {
-//         populateBP2();
-//       }, 5000);
-//       setTimeout(function () {
-//         runQuiz(data);
-//       }, 5001);
-//     });
-// });
+// Category Selection
 
 let category;
-let difficulty;
+
 
 $('.category').click(function (event) {
   category = event.currentTarget.attributes[2].nodeValue
   console.log(category)
-
-  $('.difficulty').removeClass().addClass('difficulty2 diifficulty')
+  $('.difficulty').removeClass().addClass('difficulty2 diifficulty');
+  $(this).css({
+    'background-color': 'rgb(255, 136, 0)',
+    'transform': 'scale(1.05)',
+    'box-shadow': '2px 2px 2px rgb(141, 141, 141)'
+  });
 });
+
+
+
+// Difficulty Selection
+
+let difficulty;
 
 $('.difficulty').click(function (event) {
   difficulty = event.currentTarget.attributes[1].nodeValue;
@@ -135,11 +124,31 @@ $('.difficulty').click(function (event) {
 
 // Check Answer
 
+$(".quiz-box-container").on("click", ".ans1, .ans2, .ans3, .ans4", function () {
+  if ($(this).html() === data.results[position].correct_answer) {
+    alert('Correct!')
+    runQuiz(data)
+  } else {
+    alert('Wrong!')
+    runQuiz(data)
+  };
+});
+
 // Update Score
 
 // updateScore()
 
 // Update Time
+
+// var seconds = 0;
+// var el = document.getElementById('seconds-counter');
+
+// function incrementSeconds() {
+//   seconds += 1;
+//   el.innerText = "Time elapsed:" + seconds;
+// }
+
+// var cancel = setInterval(incrementSeconds, 1000); < div id = 'seconds-counter' > < /div>
 
 // updateTime()
 
