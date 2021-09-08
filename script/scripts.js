@@ -68,7 +68,7 @@ function randomizeJSONData(data) {
 function runQuiz(data) {
   $('.ans').css({
     'background-color': '#fff'
-  })
+  }) // Resets background colour from red/green when user selects an answer
   position++; // This code was is a workaround to bug number 5 which is listed in the relevant section in the Readme
   randomizeJSONData(data);
   $('#question').html(`${data.results[position].question}`)
@@ -103,7 +103,7 @@ let difficulty;
 
 $('.difficulty').click(function (event) {
   difficulty = event.currentTarget.attributes[1].nodeValue;
-  $('.difficulty').removeClass().addClass('difficulty2 diifficulty') // Classes are added to change pointer events from none to auto
+  $('.difficulty').removeClass().addClass('difficulty2 difficulty') // Classes are added to change pointer events from none to auto
   callApiData(category, difficulty);
   populateBP1();
   setTimeout(function () {
@@ -116,26 +116,28 @@ $('.difficulty').click(function (event) {
 
 // Update Score
 
-function updateScore() {
-  
-  var score = document.getElementById('operand1');
-  var potentialScore = document.getElementById('operand2');
-  var currentScore = score.innerHTML;
-  var currentPotentialScore = potentialScore.innerHTML;
-  currentScore++;
-  currentPotentialScore++;
+function updateCorrectScore() {
+  var score = parseInt($('#operand1').text());
+  $('#operand1').text(++score);
+}
+
+function updateIncorrectScore() {
+  var score = parseInt($('#operand2').text());
+  $('#operand2').text(++score);
 }
 
 // Check Answer via event delegation
 
 $(".quiz-box-container").on("click", ".ans1, .ans2, .ans3, .ans4", function () {
   if ($(this).html() === data.results[position].correct_answer) {
-    updateScore()
+    updateCorrectScore()
+    updateIncorrectScore()
     $(this).css({
       'background-color': 'rgba(35, 251, 57, 1)' // Green for correct
     })
     setTimeout(function(){ runQuiz(data); }, 1500);
   } else {
+    updateIncorrectScore()
     $(this).css({
       'background-color': 'red' // Red for incorrect
     })
