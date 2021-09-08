@@ -1,13 +1,10 @@
-//// API Calls grouped by category
+//// API Call Function
 
-// Mythology
 var data;
 
 async function callApiData(category, difficulty) {
   let response = await fetch(`https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}&type=multiple`);
-  console.log(response)
   data = await response.json();
-  console.log(data)
 }
 
 // Quiz Boilerplate Function
@@ -28,9 +25,6 @@ function populateBP2() {
           <p class="score results">
             Score:<span id="operand1">0</span>/<span id="operand2">0</span>
           </p>
-          <p class="time results">Time:<span id="operand3"></span>:
-          <span id="operand4"></span></p>
-          <div id="seconds-counter"></div>
         </div>
       </div>
 </div>`
@@ -55,13 +49,11 @@ function populateBP1() {
 let newArray;
 let position = -1;
 
-
 function randomizeJSONData(data) {
     newArray = new Array(data.results[position].incorrect_answers[0],
     data.results[position].incorrect_answers[1],
     data.results[position].incorrect_answers[2],
     data.results[position].correct_answer);
-    
     
   for (let i = newArray.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * i)
@@ -93,16 +85,17 @@ let category;
 
 $('.category').click(function (event) {
   category = event.currentTarget.attributes[2].nodeValue
-  console.log(category)
   $('.difficulty').removeClass().addClass('difficulty2 diifficulty');
+  $('.category').css({
+    'background-color': 'rgb(41, 41, 41)'
+  })
   $(this).css({
     'background-color': 'rgb(255, 136, 0)',
     'transform': 'scale(1.05)',
     'box-shadow': '2px 2px 2px rgb(141, 141, 141)'
   });
+  
 });
-
-
 
 // Difficulty Selection
 
@@ -110,7 +103,6 @@ let difficulty;
 
 $('.difficulty').click(function (event) {
   difficulty = event.currentTarget.attributes[1].nodeValue;
-  console.log(difficulty)
   $('.difficulty').removeClass().addClass('difficulty2 diifficulty') // Classes are added to change pointer events from none to auto
   callApiData(category, difficulty);
   populateBP1();
@@ -122,17 +114,30 @@ $('.difficulty').click(function (event) {
   }, 4001);
 });
 
-// Check Answer
+// Update Score
+
+function updateScore() {
+  
+  var score = document.getElementById('operand1');
+  var potentialScore = document.getElementById('operand2');
+  var currentScore = score.innerHTML;
+  var currentPotentialScore = potentialScore.innerHTML;
+  currentScore++;
+  currentPotentialScore++;
+}
+
+// Check Answer via event delegation
 
 $(".quiz-box-container").on("click", ".ans1, .ans2, .ans3, .ans4", function () {
   if ($(this).html() === data.results[position].correct_answer) {
+    updateScore()
     $(this).css({
-      'background-color': 'green'
+      'background-color': 'rgba(35, 251, 57, 1)' // Green for correct
     })
     setTimeout(function(){ runQuiz(data); }, 1500);
   } else {
     $(this).css({
-      'background-color': 'red'
+      'background-color': 'red' // Red for incorrect
     })
     setTimeout(function(){ runQuiz(data); }, 1500);
   };
@@ -142,30 +147,6 @@ $(".quiz-box-container").on("click", ".ans1, .ans2, .ans3, .ans4", function () {
 
 // updateScore()
 
-// Update Time
-
-// var seconds = 0;
-// var el = document.getElementById('seconds-counter');
-
-// function incrementSeconds() {
-//   seconds += 1;
-//   el.innerText = "Time elapsed:" + seconds;
-// }
-
-// var cancel = setInterval(incrementSeconds, 1000); < div id = 'seconds-counter' > < /div>
-
-// updateTime()
-
-// Visual Feedback For Correct/Incorrect Answers
-
-// visualFB()
-
 // End Game Results
 
 // endGame()
-
-// Check Answer/Generate New question
-
-// function checkAnswer() {
-
-// }
