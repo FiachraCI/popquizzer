@@ -30,6 +30,7 @@ function populateBP2() {
           </p>
           <p class="time results">Time:<span id="operand3"></span>:
           <span id="operand4"></span></p>
+          <div id="seconds-counter"></div>
         </div>
       </div>
 </div>`
@@ -68,15 +69,15 @@ function randomizeJSONData(data) {
     newArray[i] = newArray[j]
     newArray[j] = temp
   }
-}
-;
-
-
+};
 
 // Run initial quiz when category/difficulty have been clicked in series
 
 function runQuiz(data) {
-  position++;
+  $('.ans').css({
+    'background-color': '#fff'
+  })
+  position++; // This code was is a workaround to bug number 5 which is listed in the relevant section in the Readme
   randomizeJSONData(data);
   $('#question').html(`${data.results[position].question}`)
   $('.ans1').html(`${newArray[0]}`)
@@ -89,7 +90,6 @@ function runQuiz(data) {
 // Category Selection
 
 let category;
-
 
 $('.category').click(function (event) {
   category = event.currentTarget.attributes[2].nodeValue
@@ -111,26 +111,30 @@ let difficulty;
 $('.difficulty').click(function (event) {
   difficulty = event.currentTarget.attributes[1].nodeValue;
   console.log(difficulty)
-  $('.difficulty').removeClass().addClass('difficulty2 diifficulty')
+  $('.difficulty').removeClass().addClass('difficulty2 diifficulty') // Classes are added to change pointer events from none to auto
   callApiData(category, difficulty);
   populateBP1();
   setTimeout(function () {
     populateBP2();
-  }, 1000);
+  }, 4000);
   setTimeout(function () {
     runQuiz(data);
-  }, 1001);
+  }, 4001);
 });
 
 // Check Answer
 
 $(".quiz-box-container").on("click", ".ans1, .ans2, .ans3, .ans4", function () {
   if ($(this).html() === data.results[position].correct_answer) {
-    alert('Correct!')
-    runQuiz(data)
+    $(this).css({
+      'background-color': 'green'
+    })
+    setTimeout(function(){ runQuiz(data); }, 1500);
   } else {
-    alert('Wrong!')
-    runQuiz(data)
+    $(this).css({
+      'background-color': 'red'
+    })
+    setTimeout(function(){ runQuiz(data); }, 1500);
   };
 });
 
