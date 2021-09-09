@@ -160,7 +160,8 @@ function endGame() {
     <h1 class="mt-5">
       Congratulations on finishing the quiz!
     </h1>
-    <h2 class="mt-5">You answered a total of ${$('#operand1').html()} out of a possible ${$('#operand2').html()} ${difficulty}, ${selectedCategory} questions correctly!
+    <h2 class="mt-3">You selected the category: ${selectedCategory}, and your diffuculty was: ${difficulty}.</h2>
+    <h2 class="mt-3">You answered a total of ${$('#operand1').html()} out of a possible ${$('#operand2').html()} questions correctly.
     <p class="mt-3">${endGameMsg}</p>
     <p class="mt-3">Click <a href="index.html" class="a-bootstrap-override"><i>here</i></a> to go back and try again!</p></h2>
   </div>`
