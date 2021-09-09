@@ -131,6 +131,26 @@ function updateMaxScore() {
   $('#operand2').text(++incorrectScore);
 }
 
+// Check Score / End Game Function
+
+let endGameMsg;
+
+function checkScore() {
+  if ($('#operand2').html() >= 10) {
+    if ($('#operand1').html() <= 4) {
+      endGameMsg = "Better luck next time!"
+      console.log(endGameMsg)
+    } else if ($('#operand1').html() <= 9) {
+      endGameMsg = "Great effort!"
+    } else {
+      endGameMsg = "You aced it!"
+    }
+    endGame();
+  } else {
+    return;
+  }
+}
+
 // End Game Boiler Plate
 
 
@@ -141,24 +161,11 @@ function endGame() {
       Congratulations on finishing the quiz!
     </h1>
     <h2 class="mt-5">You answered a total of ${$('#operand1').html()} out of a possible ${$('#operand2').html()} ${difficulty}, ${selectedCategory} questions correctly!
+    <p class="mt-3">${endGameMsg}</p>
     <p class="mt-3">Click <a href="index.html" class="a-bootstrap-override"><i>here</i></a> to go back and try again!</p></h2>
   </div>`
   );
 }
-
-// Check Score / End Game Function
-
-function checkScore() {
-  if ($('#operand2').html() >= 10) {
-    endGame();
-  } else {
-    return;
-  }
-}
-
-// let endGameMsg1 = "Better luck next time!"
-// let endGameMsg2 = "Good effort!"
-// let endGameMsg3 = "You aced it!"
 
 // Check Answer Function
 
