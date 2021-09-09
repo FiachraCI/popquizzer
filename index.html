@@ -13,12 +13,11 @@
     integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous">
   </script>
   <script src="https://kit.fontawesome.com/f232718317.js" crossorigin="anonymous"></script>
-
-
   <title>PopQuizzer</title>
 </head>
 
 <body>
+  <!-- Navbar -->
   <header>
     <nav class="navbar navbar-light">
       <div class="container-fluid d-flex justify-content-center">
@@ -26,34 +25,34 @@
       </div>
     </nav>
   </header>
-
+  <!-- Categories Selection Section/Main Quiz Section after quiz initialization -->
   <section class="d-flex container-fluid justify-content-center">
     <div id="quiz-box-container" class="quiz-box-container">
       <h3 class="mt-2">
         Welcome to PopQuizzer! Click a category below to get started!
       </h3>
       <ul class="mt-2">
-        <li class="category" id="mythology" data-cat="20" type="button">
+        <li class="category" data-id="mythology" data-cat="20" type="button">
           <a href="#difficulty">
           <i class="fas fa-hat-wizard"></i><span>Mythology</span>
           </a>
         </li>
-        <li class="category" id="sports" data-cat="21" type="button">
+        <li class="category" data-id="sports" data-cat="21" type="button">
           <a href="#difficulty">
           <i class="fas fa-futbol"></i><span>Sports</span>
           </a>
         </li>
-        <li class="category" id="geography" data-cat="22" type="button">
+        <li class="category" data-id="geography" data-cat="22" type="button">
           <a href="#difficulty">
           <i class="fas fa-globe-europe"></i><span>Geography</span>
           </a>
         </li>
-        <li class="category" id="history" data-cat="23" type="button">
+        <li class="category" data-id="history" data-cat="23" type="button">
           <a href="#difficulty">
           <i class="fab fa-fort-awesome"></i><span>History</span>
           </a>
         </li>
-        <li class="category" id="film" data-cat="11" type="button">
+        <li class="category" data-id="film" data-cat="11" type="button">
           <a href="#difficulty">
           <i class="fas fa-video"></i><span>Films</span>
           </a>
@@ -63,36 +62,36 @@
           <i class="fas fa-car"></i><span>Vehicles</span>
           </a>
         </li>
-        <li class="category" id="animal" data-cat="27" type="button">
+        <li class="category" data-id="animal" data-cat="27" type="button">
           <a href="#difficulty">
           <i class="fas fa-paw"></i><span>Animals</span>
           </a>
         </li>
-        <li class="category" id="science & nature" data-cat="17" type="button">
+        <li class="category" data-id="science & nature" data-cat="17" type="button">
           <a href="#difficulty">
           <i class="fas fa-leaf"></i><span>Science/Nature</span>
           </a>
         </li>
-        <li class="category" id="general knowledge" data-cat="9" type="button">
+        <li class="category" data-id="general knowledge" data-cat="9" type="button">
           <a href="#difficulty">
           <i class="far fa-lightbulb"></i><span>General</span>
           </a>
         </li>
       </ul>
-
+        <!-- Difficulty Selection Section -->
       <h3 class="mt-2">Next choose your desired difficulty...</h3>
       <ul class="mt-2" id="difficulty">
-        <li class="difficulty1 difficulty" id="easy" type="button">
+        <li class="difficulty1 difficulty" data-id="easy" type="button">
           <a href="#">
           <i class="fas fa-dice-one"></i><span>Easy</span>
           </a>
         </li>
-        <li class="difficulty1 difficulty" id="medium" type="button">
+        <li class="difficulty1 difficulty" data-id="medium" type="button">
           <a href="#">
           <i class="fas fa-dice-two"></i><span>Medium</span>
           </a>
         </li>
-        <li class="difficulty1 difficulty" id="hard" type="button">
+        <li class="difficulty1 difficulty" data-id="hard" type="button">
           <a href="#">
           <i class="fas fa-dice-three"></i><span>Hard</span>
           </a>
@@ -100,7 +99,7 @@
       </ul>
     </div>
   </section>
-
+  <!-- Footer -->
   <footer class="d-flex justify-content-center" id="footer">
     <span>&copy;<a href="#" class="footer-logo"> PopQuizzer </a><i class="far fa-hand-pointer"></i></span>
   </footer>
