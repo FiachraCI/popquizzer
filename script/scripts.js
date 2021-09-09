@@ -3,8 +3,10 @@
 var data;
 
 async function callApiData(category, difficulty) {
-  let response = await fetch(`https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}&type=multiple`);
+  let response = await fetch(`https://opentdb.com/api.php?amount=11&category=${category}&difficulty=${difficulty}&type=multiple`);
   data = await response.json();
+  console.log(response);
+  console.log(data)
 }
 
 // Quiz Boilerplate Function
@@ -108,47 +110,71 @@ $('.difficulty').click(function (event) {
   populateBP1();
   setTimeout(function () {
     populateBP2();
-  }, 4000);
+  }, 1500);
   setTimeout(function () {
     runQuiz(data);
-  }, 4001);
+  }, 1501);
 });
 
 // Update Score
 
 function updateCorrectScore() {
-  var score = parseInt($('#operand1').text());
-  $('#operand1').text(++score);
+  var correctScore = parseInt($('#operand1').text());
+  $('#operand1').text(++correctScore);
 }
 
-function updateIncorrectScore() {
-  var score = parseInt($('#operand2').text());
-  $('#operand2').text(++score);
+function updateMaxScore() {
+  var incorrectScore = parseInt($('#operand2').text());
+  $('#operand2').text(++incorrectScore);
 }
 
-// Check Answer via event delegation
+// End Game Boiler Plate
 
-$(".quiz-box-container").on("click", ".ans1, .ans2, .ans3, .ans4", function () {
-  if ($(this).html() === data.results[position].correct_answer) {
-    updateCorrectScore()
-    updateIncorrectScore()
-    $(this).css({
-      'background-color': 'rgba(35, 251, 57, 1)' // Green for correct
-    })
-    setTimeout(function(){ runQuiz(data); }, 1500);
+function endGame() {
+  $('.quiz-box-container').html(
+    `<div class="question-area">
+    <h1 class="mt-5">
+      Congratulations on finishing the quiz!
+    </h1>
+    <h2 class="mt-5">You answered a total of ${$('#operand1').html()} out of ${$('#operand2').html()} correctly!
+    Click <a href="index.html">here</a> to go back and try again!</h2>
+  </div>`
+  );
+}
+
+// Check Score / End Game Function
+
+function checkScore() {
+  if ($('#operand2').html() >= 10) {
+    endGame();
   } else {
-    updateIncorrectScore()
-    $(this).css({
-      'background-color': 'red' // Red for incorrect
-    })
-    setTimeout(function(){ runQuiz(data); }, 1500);
-  };
+    return;
+  }
+}
+
+// Check Answer Function
+
+$(".quiz-box-container").on("click", ".ans1, .ans2, .ans3, .ans4", function() {
+	if ($('#operand2').html() <= 9) {
+		if ($(this).html() === data.results[position].correct_answer) {
+			$(this).css({
+				'background-color': 'rgba(35, 251, 57, 1)' // Green for correct
+			});
+			setTimeout(function() {
+				updateCorrectScore();
+				updateMaxScore();
+        checkScore();
+        runQuiz(data);
+			}, 500);
+		} else {
+			$(this).css({
+				'background-color': 'red' // Red for incorrect
+			});
+			setTimeout(function() {
+				updateMaxScore();
+        checkScore();
+        runQuiz(data);
+			}, 500);
+		};
+	}
 });
-
-// Update Score
-
-// updateScore()
-
-// End Game Results
-
-// endGame()
