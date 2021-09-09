@@ -84,9 +84,12 @@ function runQuiz(data) {
 // Category Selection
 
 let category;
+let selectedCategory;
 
 $('.category').click(function (event) {
+  selectedCategory = event.currentTarget.attributes[1].nodeValue;
   category = event.currentTarget.attributes[2].nodeValue
+  console.log(event)
   $('.difficulty').removeClass().addClass('difficulty2 diifficulty');
   $('.category').css({
     'background-color': 'rgb(41, 41, 41)'
@@ -130,14 +133,15 @@ function updateMaxScore() {
 
 // End Game Boiler Plate
 
+
 function endGame() {
   $('.quiz-box-container').html(
     `<div class="question-area">
     <h1 class="mt-5">
       Congratulations on finishing the quiz!
     </h1>
-    <h2 class="mt-5">You answered a total of ${$('#operand1').html()} out of ${$('#operand2').html()} correctly!
-    Click <a href="index.html">here</a> to go back and try again!</h2>
+    <h2 class="mt-5">You answered a total of ${$('#operand1').html()} out of a possible ${$('#operand2').html()} ${difficulty}, ${selectedCategory} questions correctly!
+    <p class="mt-3">Click <a href="index.html" class="a-bootstrap-override"><i>here</i></a> to go back and try again!</p></h2>
   </div>`
   );
 }
@@ -151,6 +155,10 @@ function checkScore() {
     return;
   }
 }
+
+// let endGameMsg1 = "Better luck next time!"
+// let endGameMsg2 = "Good effort!"
+// let endGameMsg3 = "You aced it!"
 
 // Check Answer Function
 
