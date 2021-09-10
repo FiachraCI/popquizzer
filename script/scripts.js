@@ -49,7 +49,7 @@ function populateBP1() {
 // New array/randomisation of JSON data for multiple choice answers
 
 let newArray;
-let position = -1;
+let position = -1; // Ongoing bug 1
 
 function randomizeJSONData(data) {
 	newArray = new Array(data.results[position].incorrect_answers[0],
@@ -71,7 +71,7 @@ function runQuiz(data) {
 	$('.ans').css({
 		'background-color': '#fff'
 	}) // Resets background colour from red/green when user selects an answer
-	position++;
+	position++; // Ongoing bug 1
 	randomizeJSONData(data);
 	$('#question').html(`${data.results[position].question}`)
 	$('.ans1').html(`${newArray[0]}`)
