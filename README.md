@@ -1,8 +1,8 @@
 # PopQuizzer
 
-I created this multiple choice quiz with three levels of difficulty and nine categories for my second milestone project whilst studying with the Code Institute. The site features one page with subsuquent sections being added dynamically rather than loading new pages. The site uses API data from [Open Trivia](https://opentdb.com/) to generate the questions and answers so the user should not receive the same questions twice or more in quick succession.
+I created this multiple choice quiz with three levels of difficulty and nine categories for my second milestone project whilst studying with the Code Institute. The site features one page with subsequent sections being added dynamically rather than loading new pages. The site uses API data from [Open Trivia](https://opentdb.com/) to generate the questions and answers so the user should not receive the same questions twice or more in quick succession.
 
-The aim of the site is to provide the user with a fun, interactive quiz experience that they can tailor to their intersets and knowledge level.
+The aim of the site is to provide the user with a fun, interactive quiz experience that they can tailor to their interests and knowledge level.
 
 ![Am I Responsive images showing the website on different devices](assets/images/mockups.webp)
 
@@ -61,18 +61,18 @@ Site user goals:
 
 ## Wireframe Files
 
-One wireframe for each device - phone, table and PC were created, one for each section of the home, quiz and endgame pages. The wireframes can be found [here](https://github.com/FiachraCI/popquizzer/blob/main/assets/images/desktop_home-merged.pdf)
+One wireframe for each device - phone, table and PC was created, one for each section of the home, quiz and endgame pages. The wireframes can be found [here](https://github.com/FiachraCI/popquizzer/blob/main/assets/images/desktop_home-merged.pdf)
 
 ## Colour Scheme
 
-I decided upon a very minimalist approach to the colour scheme. The navbar & footer are off-black with off-white logos. The site itself has a grey/white background image and the box that contains the quiz elements is slightly opaque. The elements within this box are styled so that the stand out from their relative background to maximise legibility and are a mix of white-on-black and vice versa with text shadow to make them pop from the background.
+I decided upon a very minimalist approach to the colour scheme. The navbar & footer are off-black with off-white logos. The site itself has a grey/white background image and the box that contains the quiz elements is slightly opaque. The elements within this box are styled so that they stand out from their relative background to maximise legibility and are a mix of white-on-black and vice versa with text shadow to make them pop from the background.
 
 There is some slight colour relief in the logo link in the navbar and when the user clicks a right or a wrong answer, which results in the clicked answer momentarily flashing green or red respectively.
 
 ## Typography
 
 Just one font was used in the construction of the site. The font - [Nunito](https://fonts.google.com/specimen/Lobster?preview.text_type=custom), was taken from 
-[Google Fonts](https://fonts.google.com/). Nunito was used across the whole site intentionally as it seemd to tie in the whole website together and did not seem to be repetitive.
+[Google Fonts](https://fonts.google.com/). Nunito was used across the whole site intentionally as it seemed to tie in the whole website together and did not seem to be repetitive.
 
 ## Images
 
@@ -96,7 +96,7 @@ Starting with the more obvious:
 
 ![Category Selection](assets/images/selected-category.png)
 
-* Difficulty Selection - this feature allows the user to select the desired difficulty - easy, medium or hard. The difficulty cannot be selected if a category has not been clicked first as can seen below, the difficulty is slightly opaque to signal to the user that it is not clickable.
+* Difficulty Selection - this feature allows the user to select the desired difficulty - easy, medium or hard. The difficulty cannot be selected if a category has not been clicked first as can be seen below; the difficulty is slightly opaque to signal to the user that it is not clickable.
 
 ![Difficulty Selection Disabled](assets/images/disabled-difficulty.png)
 
@@ -104,7 +104,7 @@ Once the category has been clicked as seen below, the difficulty may be clicked.
 
 ![Difficulty Selection Active](assets/images/active-difficulty.png)
 
-* Visual Feedback - this feature gives the user visual feedback whether their answer to the question was correct or not. In the event the user answers correctly the selected answer will flash gree for 1.5 seconds, if incorrect it will flash red for 1.5 seconds. I decided not to show the the user the correct answer at any time as I wanted to make the experience a bit more challenging if the wanted to attempt the quiz again.
+* Visual Feedback - this feature gives the user visual feedback whether their answer to the question was correct or not. In the event the user answers correctly the selected answer will flash green for 1.5 seconds, if incorrect it will flash red for 1.5 seconds. I decided not to show the user the correct answer at any time as I wanted to make the experience a bit more challenging if they wanted to attempt the quiz again.
 
 Correct Answer: 
 
@@ -114,15 +114,15 @@ Wrong Answer:
 
 ![Wrong Answer](assets/images/wrong-answer.png)
 
-* Real-Time Score - this feature allow the user to keep track of their score in real-time as they navigate through the quiz. 
+* Real-Time Score - this feature allows the user to keep track of their score in real-time as they navigate through the quiz. 
 
 ![Real-Time Score](assets/images/real-time-score.png)
 
-* Game Summary - this feature allows the user to see a summary of their quiz attempt. The summary tells the user what category and difficuly they selected. It also tells them how many questions out of a possible ten they got correct. There is a custom message that is generated depending on the score achieved. If the user scores equal to or less than 4/10 then the message reads: "Better luck next time!", if more than 4 but less than 9 then it reads: "Great effort!" & finally if the user scores 10/10 then the message reads: "You aced it!".
+* Game Summary - this feature allows the user to see a summary of their quiz attempt. The summary tells the user what category and difficulty they selected. It also tells them how many questions out of a possible ten they got correct. There is a custom message that is generated depending on the score achieved. If the user scores equal to or less than 4/10 then the message reads: "Better luck next time!", if more than 4 but less than 9 then it reads: "Great effort!" & finally if the user scores 10/10 then the message reads: "You aced it!".
 
 ![Summary](assets/images/summary.png)
 
-* Return to home option - this feature is a clickable link in the summary which allows the user to go back to he home screen to run the quiz again if they wish to do so. The user can also get to the home screen at anytime by clicking the logo in the navbar.
+* Return to home option - this feature is a clickable link in the summary which allows the user to go back to the home screen to run the quiz again if they wish to do so. The user can also get to the home screen at any time by clicking the logo in the navbar.
 
 ![Return to home](assets/images/return-to-home-option.png)
 
@@ -130,16 +130,16 @@ Wrong Answer:
 
 Some of the less obvious features include:
 
-* Smooth scroll - this feature activates mainly when selecting a category. The smooth scroll feature will automatically scroll to the difficulty section thereby making it obvious that his is the next step, once a difficulty has been selected then the smooth scroll feature scrolls back up to the top section before starting the quiz. This also makes it a mre user firendly experience by eliminating unecessary scrolling.
+* Smooth scroll - this feature activates mainly when selecting a category. The smooth scroll feature will automatically scroll to the difficulty section thereby making it obvious that this is the next step, once a difficulty has been selected then the smooth scroll feature scrolls back up to the top section before starting the quiz. This also makes it a more user friendly experience by eliminating unnecessary scrolling.
 
-* Quiz initialization message - this message pops up to alert the the quiz is about to begin. This feature will be more useful in the future when a time feature will be added and the user may want to be ready to try to beat a personal best score.
+* Quiz initialization message - this message pops up to alert the quiz is about to begin. This feature will be more useful in the future when a time feature will be added and the user may want to be ready to try to beat a personal best score.
 
 ## Features to be implemented in the future
 
 * As mentioned above, a timer will be added in a future version and the score will be increased by a certain amount depending on how quickly the user finished the quiz.
 * A voice synthesizer will be added in a future version to allow the visually impaired to use the site more intuitively.
-* An option to increase the amount of questions my multiples of ten will be added in a future version.
-* Finally more categories from the API will be added in a dropdown box to be selected from in a future version.
+* An option to increase the number of questions my multiples of ten will be added in a future version.
+* Finally, more categories from the API will be added in a dropdown box to be selected from in a future version.
 
 # Technologies Used
 
@@ -153,7 +153,7 @@ Some of the less obvious features include:
 
 ## Frameworks and Libraries
 
-* [Bootstrap v5.0.0-beta2](https://getbootstrap.com/) was used responsiveness and layout purposes.
+* [Bootstrap v5.0.0-beta2](https://getbootstrap.com/) was used for responsiveness and layout purposes.
 * [Google Fonts](https://fonts.google.com/) was used for the three fonts used in the site.
 * [Font Awesome](https://fontawesome.com/) was used for the icons in the footer of the site.
 * [Balsamiq](https://balsamiq.com/) was used to create the wireframes of the site.
@@ -172,7 +172,7 @@ Some of the less obvious features include:
 1. As a user I want to be able to select the category that the quiz uses.
   * The user is able to select the category upon landing on the site. There are multiple choice categories for the user to choose from to tailor the quiz to their subject knowledge.
 1. As a user I want to be able to select the difficulty that the quiz uses.
-  * The user is prompted and is able to select their desired difficulty level once a category has been clicked. There are three different levels to choose from and the user can tailor the quiz further to their confidende level within their subject knowledge.
+  * The user is prompted and is able to select their desired difficulty level once a category has been clicked. There are three different levels to choose from and the user can tailor the quiz further to their confidence level within their subject knowledge.
 1. As a user I want to get feedback to tell me if my answer is correct or incorrect.
   * The user gets feedback throughout the quiz in the form of visual feedback. The selected answer flashed green and red for 1.5 seconds for right and wrong answers respectively, no feedback provided to tell the user the right answer if they got the question wrong, as I wanted the quix to be more challenging for repeat users. 
 1. As a user I want to be able to see my score being updated in real-time.
@@ -195,7 +195,7 @@ All of the user stories above were tested on small, medium, and large devices. A
 
 Testing was conducted on [Google Chrome](https://www.google.com/intl/en_ie/chrome/) throughout, and on [Firefox](https://www.mozilla.org/en-US/firefox/new/), [Safari](https://www.apple.com/safari/), [Microsoft Edge](https://www.microsoft.com/en-us/edge) and [iOS](https://www.apple.com/ie/ios/ios-14/) at the final testing stage.
 
-Family members and friends with various devices assisted in testing the deployed site and reported no major bugs in deployed final site.
+Family members and friends with various devices assisted in testing the deployed site and reported no major bugs in the deployed final site.
 
 ### Bugs during build
 
@@ -209,18 +209,18 @@ I defined the data separately with global scope and this fixed the error.
 [Data Defined](assets/bugs/data-defined.png)
 1. Issue with the dynamically added "$('.ans1')" selectors not working. In the photo below I was attempting to generate an alert when the "ans1" was selected (.ans2, .ans3 & .ans4 were identically problematic solving for (.ans1) would solve for all).
 ![Event Delegation Bug](assets/bugs/event-delegation.png)
-This issue was particulary difficult to solve for someone relatively new to coding, as there were no console erroprs to indicate why the selectors didn't function. After some time I came across event delegation for dynamically added content and the code below solved the issue.
+This issue was particularly difficult to solve for someone relatively new to coding, as there were no console errors to indicate why the selectors didn't function. After some time I came across event delegation for dynamically added content and the code below solved the issue.
 ![Event Delegation Solution](assets/bugs/event-delegation-solution.png)
-1. There was an issue with the link back to the homepage in the summary appearing blue even though I had tried to style it to be grey, I realized that my stylesheet appeared before the bootstrap link in the head. This meant that bootstrap would override and CSS rules which would explain why I had minor issues styling the site at the beginning. I realized that placing my own CSS stylesheet after the Bootstrap one would override it but upon tyring this the styling of the site changed dramatically in some parts. As I was close to the submission date I chose to leave it as it was and increase the specificity of the CSS class I tried earlier as a workaround which solved the problem. In future projects my own CSS style sheet will be placed after Bootstrap or any other Frameworks.
+1. There was an issue with the link back to the homepage in the summary appearing blue even though I had tried to style it to be grey, I realized that my stylesheet appeared before the bootstrap link in the head. This meant that bootstrap would override CSS rules which would explain why I had minor issues styling the site at the beginning. I realized that placing my own CSS stylesheet after the Bootstrap one would override it but upon trying this the styling of the site changed dramatically in some parts. As I was close to the submission date I chose to leave it as it was and increase the specificity of the CSS class I tried earlier as a workaround which solved the problem. In future projects my own CSS style sheet will be placed after Bootstrap or any other Frameworks.
 ![Specificity Issue](assets/bugs/specificity-issue.png)
 
 ### Ongoing Bugs
 
-1. There was a particularly confusing bug with the development on the quiz. I defined a variable "position" to have a value of "0" and placed the position variable in a number of areas signify the first posiion of an array. For some reason, the code did not work properly and questions were displaying with the wrong multiple choice answers when starting from position "0" initially, so I tried starting from a position of "-1" first and incrementing the position beore the quiz runs and this fixed this issue. It seems that the code works as intended from position zero only when incremented with a function first. I currently do not know why this works and the code works in its current state as the result of a lot of trial and error, and I am investigating this and will update this readme with any updates.
+1. There was a particularly confusing bug with the development of the quiz. I defined a variable "position" to have a value of "0" and placed the position variable in a number of areas to signify the first position of an array. For some reason, the code did not work properly and questions were displaying with the wrong multiple choice answers when starting from position "0" initially, so I tried starting from a position of "-1" first and incrementing the position before the quiz runs and this fixed this issue. It seems that the code works as intended from position zero only when incremented with a function first. I currently do not know why this works and the code works in its current state as the result of a lot of trial and error, and I am investigating this and will update this readme with any updates.
 
 ![Known Bug 1](assets/bugs/ongoing-bug-1.png)
 
-1. There is somme minor styling issues with the site which do not affect the usability of the site, but may affect the user experience slightly. The main issue is that some of the multiple choice answers from the API are quite long, some are whole sentences. This was not taken into consideration when styling the answer buttons and so very seldomly some of the answers can affect the formatting and plaement of the buttons as can be seen below. This issue was discovered late in the build due to the rarity of the event and there was not enough time to rectify the issue prior to submitting. The decision was made to submit the project regardless, as this is in my opinion a minor issue and the user may even think that this was intentional as the unintended formatting is generally symetrical and ordered.
+1. There are some minor styling issues with the site which do not affect the usability of the site, but may affect the user experience slightly. The main issue is that some of the multiple choice answers from the API are quite long, some are whole sentences. This was not taken into consideration when styling the answer buttons and so very seldomly some of the answers can affect the formatting and placement of the buttons as can be seen below. This issue was discovered late in the build due to the rarity of the event and there was not enough time to rectify the issue prior to submitting. The decision was made to submit the project regardless, as this is in my opinion a minor issue and the user may even think that this was intentional as the unintended formatting is generally symmetrical and ordered.
 
 ![Minor styling Bug](assets/bugs/css-issue.png)
 
@@ -229,26 +229,26 @@ This issue was particulary difficult to solve for someone relatively new to codi
 
 ## GitHub Pages
 
-The project was deployed to [GitHub Pages](https://pages.github.com/) using the following method:
+The project was deployed to [GitHub Pages](https://pages.github.com/login) using the following method:
 
-1. [Login]() to [GitHub.]()
-1. Locate your desired [repository.]()
-1. Click [settings]() on the top of the repository.
-1. Scroll down until you see [GitHub Pages.])
-1. In the _source_ section, select the [master branch]) and click [save.]()
-1. If successful the page will refresh, scroll down again to the GitHub Pages section to confirm. You should see a [confirmation message]() with the new published URL.
+1. Login [GitHub.](https://github.com/login)
+1. Locate your desired repository.
+1. Click settings on the top of the repository.
+1. Scroll down until you see GitHub Pages.
+1. In the _source_ section, select the main branch and click save.
+1. If successful, the page will refresh, scroll down again to the GitHub Pages section to confirm. You should see a confirmation message with the new published URL.
 
 ## Forking the published GitHub repository
 
 1. Repeat steps 1 & 2 from above.
-1. Locate the [fork]() option in the top-right hand corner of the repository page.
-1. You will be asked where you want to fork it too if successful, see [here]() for example.
+1. Locate the fork option in the top-right hand corner of the repository page.
+1. You will be asked where you want to fork it to if successful.
 
 ## Cloning the published GitHub repository
 
-1. Repeat steps 1 & 2 from above.
-1. Click on the [code]() option on the top of the repository page.
-1. Copy the [URL]() under the HTTPS tab.
+1. Repeat steps 1 & 2 from 2 above.
+1. Click on the code option on the top of the repository page.
+1. Copy the URL under the HTTPS tab.
 1. Consult your code editor of choice's documentation for cloning from GitHub to complete the process.
 
 # Credits
